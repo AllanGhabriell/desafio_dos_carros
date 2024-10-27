@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1>DETRAN</h1>
+            <p>Olá sou seu pior vilão, me chamo <strong>DETRAN</strong> <br>
+            caso sua velocidade passe de 80, você será multado <br> por 5 conto
+            por cada km passado</p>
+        </section>
+        <form action="">
+            <label for="input_velocidade">Adicione a velocidade:</label>
+            <br>
+            <input type="number" placeholder="Sua velocidade" id="input_velocidade" required minlength="0" maxlength="4" max="1000">
+            <br>
+            <button type="button" onclick="calcVelocidade()">Enviar</button>
+        </form>
+        <p id="saida">Velocidade</p>
+    </main>
+    <script>
+        function calcVelocidade() {
+            let cxVelocidade = document.getElementById('input_velocidade');
+            let saida = document.getElementById('saida');
+            const main = document.getElementsByTagName('main')[0];
+            let multado1 = document.getElementById('multado');
+            let valorMulta1 = document.getElementById('valorMulta1');
+
+            if (cxVelocidade.value.length === 0) {
+                alert('Epa, digite sua velocidade!');
+                return;
+            }
+            if (Number(cxVelocidade.value) <= 80) {
+                saida.innerText = `Sua velocidade é de ${cxVelocidade.value}`;
+                
+                if (multado1) main.removeChild(multado1);
+                if (valorMulta1) main.removeChild(valorMulta1);
+            } else {
+                saida.innerText = `Sua velocidade é de ${cxVelocidade.value}`;
+                if (!multado1) {
+                    multado1 = document.createElement('p');
+                    multado1.id = 'multado';
+                    multado1.innerText = 'Multado!';
+                    main.appendChild(multado1);
+                } else {
+                    multado1.innerText = 'Multado!';
+                }
+                if (!valorMulta1) {
+                    valorMulta1 = document.createElement('p');
+                    valorMulta1.id = 'valorMulta1';
+                    valorMulta1.innerText = `Sua multa é no valor de R$ ${(Number(cxVelocidade.value) - 80) * 5}`;
+                    main.appendChild(valorMulta1);
+                } else {
+                    valorMulta1.innerText = `Sua multa é no valor de R$ ${(Number(cxVelocidade.value) - 80) * 5}`;
+                }
+            }
+        }
+    </script>
+    <footer>Criado por Allan!</footer>
+</body>
+</html>
