@@ -25,38 +25,37 @@
     </main>
     <script>
         function calcVelocidade() {
-            let cxVelocidade = document.getElementById('input_velocidade');
-            let saida = document.getElementById('saida');
-            const main = document.getElementsByTagName('main')[0];
-            let multado1 = document.getElementById('multado');
-            let valorMulta1 = document.getElementById('valorMulta1');
-
+            let cxVelocidade = document.getElementById('input_velocidade')
+            let saida = document.getElementById('saida')
+            const main = document.getElementsByTagName('main')[0]
+            let multado1 = document.getElementById('multado')
+            let valorMulta1 = document.getElementById('valorMulta1')
             if (cxVelocidade.value.length === 0) {
-                alert('Epa, digite sua velocidade!');
-                return;
+                alert('Epa, digite sua velocidade!')
+                return
             }
             if (Number(cxVelocidade.value) <= 80) {
-                saida.innerText = `Sua velocidade é de ${cxVelocidade.value}`;
+                saida.innerText = `Sua velocidade é de ${cxVelocidade.value}`
                 
-                if (multado1) main.removeChild(multado1);
-                if (valorMulta1) main.removeChild(valorMulta1);
+                if (multado1) main.removeChild(multado1)
+                if (valorMulta1) main.removeChild(valorMulta1)
             } else {
-                saida.innerText = `Sua velocidade é de ${cxVelocidade.value}`;
+                saida.innerText = `Sua velocidade é de ${cxVelocidade.value}`
                 if (!multado1) {
-                    multado1 = document.createElement('p');
-                    multado1.id = 'multado';
-                    multado1.innerText = 'Multado!';
-                    main.appendChild(multado1);
+                    multado1 = document.createElement('p')
+                    multado1.id = 'multado'
+                    multado1.innerText = 'Multado!'
+                    main.appendChild(multado1)
                 } else {
-                    multado1.innerText = 'Multado!';
+                    multado1.innerText = 'Multado!'
                 }
                 if (!valorMulta1) {
-                    valorMulta1 = document.createElement('p');
-                    valorMulta1.id = 'valorMulta1';
-                    valorMulta1.innerText = `Sua multa é no valor de R$ ${(Number(cxVelocidade.value) - 80) * 5}`;
-                    main.appendChild(valorMulta1);
+                    valorMulta1 = document.createElement('p')
+                    valorMulta1.id = 'valorMulta1'
+                    valorMulta1.innerText = `Sua multa é no valor de R$ ${(Number(cxVelocidade.value) - 80) * 5}`
+                    main.appendChild(valorMulta1)
                 } else {
-                    valorMulta1.innerText = `Sua multa é no valor de R$ ${(Number(cxVelocidade.value) - 80) * 5}`;
+                    valorMulta1.innerText = `Sua multa é no valor de R$ ${(Number(cxVelocidade.value) - 80) * 5}`
                 }
             }
         }
