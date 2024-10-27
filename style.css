@@ -4,13 +4,12 @@
     border: none;
 }
 :root {
-    /* Paleta de Cores */
-    --primary-color: #1E90FF; /* Azul principal */
-    --secondary-color: #FF6347; /* Vermelho alaranjado */
-    --background-color: #F0F0F0; /* Fundo claro */
-    --text-color: #333333; /* Texto escuro */
-    --button-color: #4CAF50; /* Verde do botão */
-    --button-text-color: #FFFFFF; /* Texto do botão */
+    --primary-color: #1E90FF;
+    --secondary-color: #FF6347;
+    --background-color: #F0F0F0;
+    --text-color: #333333;
+    --button-color: #4CAF50;
+    --button-text-color: #FFFFFF;
 }
 body {
     background-color: var(--background-color);
@@ -68,7 +67,7 @@ footer {
     margin: 0px 40px 0px 40px;
     padding: 10px;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.54);
+    background-color: var(--primary-color);
 
     color: white;
     text-align: center;
@@ -77,11 +76,22 @@ footer {
     section {
         width: 100vw;
     }
+    form {
+        align-items: center;
+    }
+    input {
+        width: 40vw;
+        text-align: center;
+    }
+    button {
+        width: 40vw;
+    }
     button:hover {
         background-color: var(--secondary-color);
     }
     footer {
         margin: auto;
         width: 80vw;
+        background-color: var(--primary-color);
     }
 }
